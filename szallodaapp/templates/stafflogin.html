@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  form{
+    margin-top: 12%;
+    margin-left: 45%;
+  }
+
+  input{
+    border-radius: 40px;
+  }
+  h5{
+    line-height: 1px;
+  }
+  body{
+    background-image: url("{%static 'img/img3.jpg' %}");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 98%;
+    background-color: rgb(112, 97, 112);
+  }
+</style>
+<body >
+  <div>
+
+    <form action="/app1/staff" method="POST">
+      {% csrf_token %}
+     <h5>username</h5>
+     <input type="text" placeholder="username" name="username"><h5>password</h5>
+     <input type="password" placeholder="password" name="password"><br><br>
+     <input type="submit" style="margin-left: 7%;">
+     <a href="/app1/regform">signup</a>
+   </form>
+   {{msg}}
+   
+ </div>
+
+</body>
+</html>

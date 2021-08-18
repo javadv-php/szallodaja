@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration</title>
+    <link rel="stylesheet" href="{% static 'css/regform.css' %}">
+</head>
+<script>
+    function verifyPassword(){
+        var pwd=document.getElementById("pswd").value;
+        var pwdc=document.getElementById("cnfmpswd").value;
+        if(pwd != pwdc){
+            alert ("password doesnot match")
+            return false;
+        }
+        else{
+            alert("are you sure to register") 
+        }
+    }
+</script>
+<style>
+    body{
+background-image: url("{%static 'img/img2.jpg' %}");
+background-repeat: no-repeat;
+background-position: center;
+background-size: 50% 100%;
+background-position-y: 50px;
+background-color: darkkhaki;
+
+}
+</style>
+
+<body>
+    
+    
+    <table align="center">
+        <form action="regform" method="POST" onsubmit="return verifyPassword()">
+            {% csrf_token %}
+           <tr><td><label for="fst">firstname:</label></td><td><input type="text" placeholder="enterfirstname" name="firstname" id="fst"></td></tr>
+           
+           <tr><td><label for="lst">lastname:</label></td><td><input type="text" placeholder="enter lastname" name="lastname" id="lst"></td></tr>
+           <tr><td><label for="mail">email:</label></td><td><input type="email" placeholder="enter email" name="email" id="mail"></td></tr>
+           <tr><td><label for="ph">mobile number:</label></td><td><input type="number" placeholder="enter mob no" name="phone" id="ph"></td></tr>
+           <tr><td><label for="uname">user name:</label></td><td><input type="text" placeholder="enter username" name="username" id="uname"></td></tr>
+           <tr><td><label for="pswd">password:</label></td><td><input type="password" placeholder="enter password" name="password" id="pswd" value=""></td></tr>
+           <tr><td><label for="cnfmpswd">confirm password:</label></td><td><input type="password" placeholder="confirm password" name="cnfmpassword" id="cnfmpswd" value=""></td></tr>
+           <tr><td><button type="submit" value="submit" class="btn">Register</button></tr></td> 
+        </form>
+        </table>
+        {{msg}}
+    
+</body>
+</html>

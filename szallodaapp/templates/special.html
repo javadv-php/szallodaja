@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>special</title>
+</head>
+<style>
+    body{
+        background-color:burlywood ;
+    }
+    h1,form{
+        margin-left: 50%;
+    }
+</style>
+<body>
+    <div style= " margin-top: 20%;"></div>
+    <h1>today special</h1>
+    <form action="offer" method="POST">
+        {% csrf_token %}
+        food item:   <input type="text" name="food"><br>
+        actual price : <input type="text" name="price"><br>
+        offer price : <input type="text" name="offer" id="">
+        <input type="submit" name="" id="">
+
+    </form>
+    {{msg1}}
+    
+</body>
+</html>
